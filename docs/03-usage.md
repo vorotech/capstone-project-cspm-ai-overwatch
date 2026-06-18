@@ -47,9 +47,10 @@ python main.py cspm --scenario test_s3_red
 
 Ви можете (і повинні) запускати цей крок **багато разів**, комбінуючи різні моделі, щоб зібрати достатньо тестових даних у `metrics_history.csv` та `findings_history.csv` без необхідності щоразу перерозгортати інфраструктуру. 
 
-Моделі можна передавати списком через кому за допомогою параметра `--models`:
+Моделі можна передавати списком через кому за допомогою параметра `--models`. 
+Крім того, ви можете використати параметр `--iterations N`, щоб скрипт автоматично виконав вказану кількість прогонів поспіль для збору більшої кількості статистики:
 ```bash
-python main.py analyze --scenario test_s3_red --models "anthropic/claude-3-haiku,openai/gpt-4o-mini"
+python main.py analyze --scenario test_s3_red --models "anthropic/claude-3-haiku,openai/gpt-4o-mini" --iterations 5
 ```
 
 **4. Terraform Destroy**

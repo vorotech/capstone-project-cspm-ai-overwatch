@@ -40,14 +40,18 @@ def run_report(args=None):
 
 def run_analyze(args):
     """Executes the LLM analysis phase."""
-    console.print(f"\n[bold yellow]--- Running LLM Analysis for Scenario: {args.scenario} ---[/bold yellow]")
+    console.print(f"\n[bold yellow]--- Running LLM Analysis for Scenario: {args.scenario} (Iterations: {args.iterations}) ---[/bold yellow]")
     if not args.models:
         console.print("[red]Error: You must provide at least one model via --models (e.g. --models local/gemma-4-12b,anthropic/claude-3-haiku) for analyze command.[/red]")
         sys.exit(1)
         
     analyzer = LLMAnalyzer(scenarios_file=args.scenarios_file)
     models_list = [m.strip() for m in args.models.split(",")]
-    analyzer.run_analysis(args.scenario, models_list)
+    
+    for i in range(args.iterations):
+        if args.iterations > 1:
+            console.print(f"\n[bold blue]=== Iteration {i+1}/{args.iterations} ===[/bold blue]")
+        analyzer.run_analysis(args.scenario, models_list)
     
     # Automatically generate report after analysis
     run_report()
@@ -89,6 +93,7 @@ def main():
     # Subcommand: analyze
     parser_analyze = subparsers.add_parser("analyze", parents=[parent_parser, scenario_parser], help="Run LLM analysis on CSPM results")
     parser_analyze.add_argument("--models", help="Comma separated list of models, e.g. local/gemma-4-12b,anthropic/claude-3-haiku")
+    parser_analyze.add_argument("--iterations", type=int, default=1, help="Number of times to run the analysis loop (default: 1)")
     parser_analyze.set_defaults(func=run_analyze)
     
     # Subcommand: destroy
