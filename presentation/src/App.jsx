@@ -812,7 +812,7 @@ const SlideResponse = () => (
               <div style={{fontWeight: 'bold', color: '#92400e', fontSize: '1.1rem'}}>MEDIUM</div>
             </div>
             
-            <ChevronRight size={24} color="#94a3b8"/>
+            <div style={{width: 0, height: 0, borderTop: '15px solid transparent', borderBottom: '15px solid transparent', borderLeft: '20px solid #fef3c7'}}></div>
             
             <div style={{flex: 1, padding: '1rem', background: '#dcfce3', borderRadius: '0', border: '1px solid #bbf7d0', textAlign: 'center'}}>
               <div style={{fontSize: '0.85rem', color: '#166534', marginBottom: '0.25rem'}}>Стало (LLM)</div>
@@ -827,7 +827,7 @@ const SlideResponse = () => (
             </div>
             <div style={{fontSize: '0.85rem', color: '#475569', fontWeight: 'bold', marginBottom: '0.25rem'}}>Причина:</div>
             <p style={{fontSize: '0.85rem', color: '#475569', margin: 0, lineHeight: '1.5'}}>
-              Модель виявила, що бакет вже захищений базовим шифруванням (SSE-S3) і не є публічним згідно з архітектурою. Тому вимогу використання саме KMS класифіковано як додаткове покращення, а не критичну вразливість.
+              Модель виявила, що S3 бакет вже захищений базовим шифруванням (SSE-S3) і не є публічним згідно з архітектурою. Тому вимогу використання саме KMS класифіковано як додаткове покращення, а не вразливість.
             </p>
           </div>
 
@@ -1418,7 +1418,16 @@ function App() {
       {/* Navigation & Progress Area */}
       <div style={{flexShrink: 0, padding: '1rem 0 0 0', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
         {/* Progress Bar */}
-        <div style={{width: '100%', height: '6px', background: 'rgba(0,0,0,0.1)', borderRadius: '0', overflow: 'hidden'}}>
+        <div 
+          onClick={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const newSlide = Math.floor((clickX / rect.width) * totalSlides);
+            setCurrentSlide(Math.max(0, Math.min(newSlide, totalSlides - 1)));
+          }}
+          style={{width: '100%', height: '10px', background: 'rgba(0,0,0,0.1)', borderRadius: '0', overflow: 'hidden', cursor: 'pointer'}}
+          title="Натисніть для переходу на відповідний слайд"
+        >
           <motion.div 
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
