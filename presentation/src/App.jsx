@@ -643,7 +643,7 @@ const SlideNormalization = () => (
       "Software and Configuration Checks/AWS Security...",
       "Software and Configuration Checks/Industry..."
     ],
-    "uid": "prowler-aws-s3_bucket_server_access_logging_enabled-1234567890-red"
+    "uid": "prowler-aws-s3_bucket_server_access_logging_enabled-<REDACTED>-red"
   },
   "resources": [
     {
@@ -669,9 +669,9 @@ const SlideNormalization = () => (
 {`{
   "tool": "prowler",
   "finding_id": "s3_account_level_public_access_blocks",
-  "resource_id": "arn:aws:s3:us-east-1:1234567890:account",
+  "resource_id": "arn:aws:s3:us-east-1:<REDACTED>:account",
   "original_severity": "HIGH",
-  "description": "Block Public Access is not configured for the account 1234567890."
+  "description": "Block Public Access is not configured for the account <REDACTED>."
 }`}
         </pre>
       </div>

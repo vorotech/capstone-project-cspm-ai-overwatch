@@ -31,11 +31,18 @@ class CSPMParser:
         return {}
 
     def parse_all(self, scenario_name: str) -> List[Dict[str, Any]]:
-        """Parses outputs from all CSPM tools for a given scenario and normalizes them."""
+        """Parses outputs from all CSPM tools for a given scenario and normalizes them.
+        Also anonymizes 12-digit AWS account IDs before returning."""
         findings = []
         findings.extend(self.parse_prowler(scenario_name))
         findings.extend(self.parse_securityhub(scenario_name))
-        return findings
+        
+        # Anonymize AWS Account IDs (12 digits) crossing the trust boundary
+        import re
+        findings_str = json.dumps(findings)
+        anonymized_str = re.sub(r'\b\d{12}\b', '<REDACTED>', findings_str)
+        
+        return json.loads(anonymized_str)
 
     def _normalize_prowler_control(self, control: str) -> str:
         """
