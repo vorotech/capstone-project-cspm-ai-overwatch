@@ -280,26 +280,32 @@ const SlideTitle = () => {
 
 const SlideProblem = () => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>1. Мета дослідження</h2>
+    <h2>1. Проблема</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', flexGrow: 1, paddingBottom: '1rem', alignItems: 'stretch'}}>
       
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
         <h3 style={{display: 'flex', alignItems: 'center', marginBottom: '1.5rem', color: '#ef4444'}}>
           <AlertTriangle size={28} style={{marginRight: '12px'}}/> Проблема
         </h3>
-        <p style={{fontSize: '1rem', color: '#475569', lineHeight: '1.7'}}>
-          Традиційні інструменти Cloud Security Posture Management (CSPM), такі як AWS Security Hub та Prowler, часто генерують значну кількість невідповідностей.
-        </p>
-        <div style={{marginTop: '1.5rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.08)', borderLeft: '4px solid #ef4444', borderRadius: '0'}}>
-          <p style={{margin: 0, color: '#b91c1c', fontWeight: '500', lineHeight: '1.6'}}>
-            Після глибшого ручного аналізу вони часто виявляються false positives, оскільки не враховують бізнес-контекст, компенсуючі заходи чи архітектурні рішення.
+        <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem'}}>
+          <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.6', margin: 0}}>
+            <strong>Кіберзагрози еволюціонують</strong> надзвичайно швидко, а хмарні інфраструктури стають дедалі складнішими. Водночас ринок відчуває <strong>гострий дефіцит</strong> кваліфікованих інженерів з безпеки.
+          </p>
+          <p style={{fontSize: '1.05rem', color: '#475569', lineHeight: '1.6', margin: 0}}>
+            Для автоматизації компанії використовують інструменти керування захищеності хмарни (CSPM), зокрема <strong>AWS Security Hub, Prowler</strong>. Проте вони оцінюють ресурси <em>ізольовано</em>, не розуміючи загальної картини та архітектури.
+          </p>
+        </div>
+        <div style={{padding: '1.25rem', background: 'rgba(239, 68, 68, 0.08)', borderLeft: '4px solid #ef4444', borderRadius: '0', marginTop: 'auto'}}>
+          <p style={{margin: 0, color: '#b91c1c', fontWeight: '500', lineHeight: '1.6', fontSize: '1rem'}}>
+            <strong>Наслідок: Alert Fatigue (Втома від тривог)</strong><br/>
+            Після глибшого ручного аналізу зауваження часто виявляються false positives, оскільки не враховують бізнес-контекст, компенсуючі заходи чи архітектурні рішення.
           </p>
         </div>
       </div>
 
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
         <h3 style={{display: 'flex', alignItems: 'center', marginBottom: '1.5rem', color: '#10b981'}}>
-          <Lightbulb size={28} style={{marginRight: '12px'}}/> Ідея та Рішення
+          <Lightbulb size={28} style={{marginRight: '12px'}}/> Ідея
         </h3>
         <p style={{fontSize: '1rem', color: '#475569', lineHeight: '1.7'}}>
           Перевірити, чи може ШІ аналізувати результати CSPM-сканувань разом із архітектурними діаграмами для:
@@ -322,7 +328,7 @@ const SlideProblem = () => (
 
 const SlideQuestion = () => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>2. Головне дослідницьке питання</h2>
+    <h2>2. Дослідницьке питання</h2>
     <div style={{flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
       <div className="card" style={{position: 'relative', overflow: 'hidden', padding: '4rem 3rem', border: '1px solid #e2e8f0', background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)', textAlign: 'center', maxWidth: '1000px'}}>
         
@@ -758,7 +764,7 @@ const SlidePrompt = () => (
 
 const SlideAnalysisPhases = () => (
   <div className="slide-content">
-    <h2>11. Етапи аналізу відповіді LLM</h2>
+    <h2>12. Етапи аналізу відповіді LLM</h2>
     <div className="funnel-container" style={{marginTop: '1rem'}}>
       <div className="funnel-stage" style={{width: '90%', background: '#e0f2fe', color: '#1e3a8a'}}>
         <strong>Етап 1: Оцінка якості</strong><br/>
@@ -788,7 +794,7 @@ const SlideAnalysisPhases = () => (
 
 const SlideResponse = () => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>12. Переоцінка: LLM корегування ризику</h2>
+    <h2>11. Переоцінка: LLM корегування ризику</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem'}}>
       
       {/* Code Snippet */}
@@ -1044,45 +1050,41 @@ const SlideDashboardTable = ({ tableRows }) => (
 
 const SlideInsights = () => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>17. Інсайти: Лідери серед LLM-моделей</h2>
+    <h2>17. Ключові висновки</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem', alignItems: 'stretch'}}>
 
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
         <h3 style={{display: 'flex', alignItems: 'center', marginBottom: '1rem', color: '#10b981'}}>
-          <CheckCircle2 size={20} style={{marginRight: '8px'}}/> Комерційні моделі (Paid)
+          <CheckCircle2 size={20} style={{marginRight: '8px'}}/> Топ Моделі
         </h3>
         <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
-          <div style={{padding: '0.75rem', background: 'rgba(16, 185, 129, 0.05)', borderLeft: '3px solid #10b981'}}>
-            <strong style={{fontSize: '0.85rem', color: '#065f46'}}>🏆 Найвища консистентність</strong>
-            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>GPT-4o та Claude 3.5 Sonnet — стабільні рішення у повторних запусках</p>
+          <div style={{padding: '0.75rem', background: 'rgba(245, 158, 11, 0.05)', borderLeft: '3px solid #f59e0b'}}>
+            <strong style={{fontSize: '0.85rem', color: '#92400e'}}>🏆 Безперечний лідер: gemma-4-31b-it</strong>
+            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>Для обох інструментів (Prowler та Security Hub) перетнула межу консистентності у 80%. Ідеальний варіант для розгортання On-Premise із гарантією захисту даних.</p>
           </div>
           <div style={{padding: '0.75rem', background: 'rgba(59, 130, 246, 0.05)', borderLeft: '3px solid #3b82f6'}}>
-            <strong style={{fontSize: '0.85rem', color: '#1e40af'}}>⚡ Найкраще token/consistency</strong>
-            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>Gemini 1.5 Flash — мінімум токенів при високій стабільності</p>
+            <strong style={{fontSize: '0.85rem', color: '#1e40af'}}>⚡ Найшвидша: gemini-3.5-flash</strong>
+            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>Показала задовільні результати для обох CSPM. Її головна перевага — це надзвичайно висока швидкість генерації відповідей.</p>
           </div>
           <div style={{padding: '0.75rem', background: 'rgba(139, 92, 246, 0.05)', borderLeft: '3px solid #8b5cf6'}}>
-            <strong style={{fontSize: '0.85rem', color: '#5b21b6'}}>🎯 Збалансований adjustment rate</strong>
-            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>Claude Sonnet 3.5 — оптимальний баланс між коригуванням та збереженням</p>
+            <strong style={{fontSize: '0.85rem', color: '#5b21b6'}}>💰 Найкраща ціна: gpt-4o-mini</strong>
+            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>Задовільна якість та консистентність. Ключовою перевагою є дуже низька ціна за токени порівняно з іншими платними моделями (наприклад, Gemini).</p>
           </div>
         </div>
       </div>
 
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
         <h3 style={{display: 'flex', alignItems: 'center', marginBottom: '1rem', color: '#f59e0b'}}>
-          <Cpu size={20} style={{marginRight: '8px'}}/> Open Source моделі
+          <TrendingUp size={20} style={{marginRight: '8px'}}/> Загальні тенденції
         </h3>
         <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
-          <div style={{padding: '0.75rem', background: 'rgba(245, 158, 11, 0.05)', borderLeft: '3px solid #f59e0b'}}>
-            <strong style={{fontSize: '0.85rem', color: '#92400e'}}>🏆 Лідер Open Source</strong>
-            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>Qwen 2.5 Coder — найкраща консистентність серед відкритих моделей</p>
+          <div style={{padding: '0.75rem', background: 'rgba(16, 185, 129, 0.05)', borderLeft: '3px solid #10b981'}}>
+            <strong style={{fontSize: '0.85rem', color: '#065f46'}}>🛡️ Security Hub vs Prowler</strong>
+            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>Рівень стабільності (Decision Consistency) для знахідок Security Hub загалом вищий, ніж для Prowler.</p>
           </div>
           <div style={{padding: '0.75rem', background: 'rgba(239, 68, 68, 0.05)', borderLeft: '3px solid #ef4444'}}>
-            <strong style={{fontSize: '0.85rem', color: '#b91c1c'}}>📉 Виклики</strong>
-            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>Вищий рівень екстремумів та нестабільності порівняно з paid-моделями</p>
-          </div>
-          <div style={{padding: '0.75rem', background: 'rgba(20, 184, 166, 0.05)', borderLeft: '3px solid #14b8a6'}}>
-            <strong style={{fontSize: '0.85rem', color: '#0d9488'}}>💰 Вартість / якість</strong>
-            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>Qwen 2.5 Coder — кращий баланс token/adjustment серед open source</p>
+            <strong style={{fontSize: '0.85rem', color: '#b91c1c'}}>📉 Коригування (Adjustment Rate)</strong>
+            <p style={{fontSize: '0.85rem', color: '#475569', margin: '0.25rem 0 0'}}>Водночас, відсоток коригувань (Adjustment Rate) для Security Hub загалом є нижчим порівняно з Prowler.</p>
           </div>
         </div>
       </div>
@@ -1093,7 +1095,7 @@ const SlideInsights = () => (
 
 const SlideValue = () => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>18. Цінність дослідження</h2>
+    <h2>18. Підсумок: Цінність дослідження</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem', alignItems: 'stretch'}}>
 
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
@@ -1388,8 +1390,8 @@ function App() {
     <SlideFindings key={8} />,
     <SlideNormalization key={9} />,
     <SlidePrompt key={10} />,
-    <SlideAnalysisPhases key={11} />,
-    <SlideResponse key={12} />,
+    <SlideResponse key={11} />,
+    <SlideAnalysisPhases key={12} />,
     <SlideQualityCheck key={13} />,
     <SlideMetrics key={14} />,
     <SlideDashboardCharts key={15} chartData={chartData} />,
@@ -1436,7 +1438,6 @@ function App() {
           <h1>AI CSPM Overwatch</h1>
         </div>
         <div style={{display: 'flex', alignItems: 'center', gap: '1rem', color: '#64748b', fontWeight: 'bold'}}>
-          Slide {currentSlide + 1} / {totalSlides}
           <button onClick={toggleFullScreen} style={{background: 'transparent', border: 'none', cursor: 'pointer', color: '#64748b', display: 'flex', alignItems: 'center'}} title="Full Screen">
             <Maximize size={20} />
           </button>
