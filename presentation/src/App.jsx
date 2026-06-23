@@ -278,9 +278,9 @@ const SlideTitle = () => {
   );
 };
 
-const SlideProblem = () => (
+const SlideProblem = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>1. Проблема</h2>
+    <h2>{slideIndex}. Проблема</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', flexGrow: 1, paddingBottom: '1rem', alignItems: 'stretch'}}>
       
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
@@ -325,9 +325,9 @@ const SlideProblem = () => (
   </div>
 );
 
-const SlideQuestion = () => (
+const SlideQuestion = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>2. Дослідницьке питання</h2>
+    <h2>{slideIndex}. Дослідницьке питання</h2>
     <div style={{flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
       <div className="card" style={{position: 'relative', overflow: 'hidden', padding: '4rem 3rem', border: '1px solid #e2e8f0', background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)', textAlign: 'center', maxWidth: '1000px'}}>
         
@@ -347,7 +347,7 @@ const SlideQuestion = () => (
   </div>
 );
 
-const SlideTasks = () => {
+const SlideTasks = ({ slideIndex }) => {
   const tasks = [
     "Автоматизувати розгортання тестової інфраструктури в AWS за допомогою Terraform",
     "Зібрати невідповідності конфігурацій за допомогою Prowler та AWS Security Hub CSPM",
@@ -358,7 +358,7 @@ const SlideTasks = () => {
 
   return (
     <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-      <h2>3. Завдання дослідження</h2>
+      <h2>{slideIndex}. Завдання дослідження</h2>
       <div style={{flexGrow: 1, display: 'flex', flexWrap: 'wrap', gap: '1.5rem', justifyContent: 'center', alignContent: 'center', paddingBottom: '2rem'}}>
         {tasks.map((task, index) => (
           <div key={index} className="card" style={{
@@ -410,9 +410,9 @@ const SlideTasks = () => {
   );
 };
 
-const SlideHypothesis = () => (
+const SlideHypothesis = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>4. Висунуті гіпотези</h2>
+    <h2>{slideIndex}. Висунуті гіпотези</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', flexGrow: 1, paddingBottom: '1rem', alignItems: 'stretch'}}>
       
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
@@ -450,9 +450,9 @@ const SlideHypothesis = () => (
   </div>
 );
 
-const SlideConstraints = () => (
+const SlideConstraints = ({ slideIndex }) => (
   <div className="slide-content">
-    <h2>5. Технічні специфікації</h2>
+    <h2>{slideIndex}. Технічні специфікації</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem'}}>
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
         <h3 style={{display: 'flex', alignItems: 'center', marginBottom: '1.5rem'}}><Cpu size={24} color="#3b82f6" style={{marginRight: '12px'}}/> Топові моделі</h3>
@@ -513,18 +513,18 @@ const SlideConstraints = () => (
   </div>
 );
 
-const SlideArchitecture = () => (
+const SlideArchitecture = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>6. Архітектура тестової інфраструктури</h2>
+    <h2>{slideIndex}. Архітектура тестової інфраструктури</h2>
     <div style={{flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'white', borderRadius: '0', padding: '1rem', border: '1px solid #e2e8f0', overflow: 'hidden'}}>
       <img src="./aws-multi-tier-architecture.drawio.png" alt="Architecture Diagram" style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain'}} />
     </div>
   </div>
 );
 
-const SlideDeploy = () => (
+const SlideDeploy = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>7. Підготовка: Управління інфраструктурою</h2>
+    <h2>{slideIndex}. Підготовка: Управління інфраструктурою</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem'}}>
       
       {/* Panel 1: AWS Profile */}
@@ -589,9 +589,9 @@ const SlideDeploy = () => (
   </div>
 );
 
-const SlideFindings = () => (
+const SlideFindings = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>8. Сканування: Керування захищеністю хмари (CSPM)</h2>
+    <h2>{slideIndex}. Сканування: Керування захищеністю хмари (CSPM)</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem'}}>
       
       {/* Panel 1: Аудитор */}
@@ -638,9 +638,9 @@ const SlideFindings = () => (
   </div>
 );
 
-const SlideNormalization = () => (
+const SlideNormalization = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>9. Нормалізація: Контекст високої щільності для LLM</h2>
+    <h2>{slideIndex}. Нормалізація: Контекст високої щільності для LLM</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem'}}>
       
       {/* Panel 1: Raw Prowler */}
@@ -697,9 +697,9 @@ const SlideNormalization = () => (
   </div>
 );
 
-const SlidePrompt = () => (
+const SlidePrompt = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>10. Системний Prompt: Контекстне ядро</h2>
+    <h2>{slideIndex}. Системний Prompt: Контекстне ядро</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem'}}>
       
       {/* Column 1: Role & Instructions */}
@@ -761,9 +761,9 @@ const SlidePrompt = () => (
   </div>
 );
 
-const SlideAnalysisPhases = () => (
+const SlideAnalysisPhases = ({ slideIndex }) => (
   <div className="slide-content">
-    <h2>12. Етапи аналізу відповіді LLM</h2>
+    <h2>{slideIndex}. Етапи аналізу відповіді LLM</h2>
     <div className="funnel-container" style={{marginTop: '1rem'}}>
       <div className="funnel-stage" style={{width: '90%', background: '#e0f2fe', color: '#1e3a8a'}}>
         <strong>Етап 1: Фільтрація невдалих запусків</strong><br/>
@@ -791,9 +791,9 @@ const SlideAnalysisPhases = () => (
   </div>
 );
 
-const SlideResponse = () => (
+const SlideResponse = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>11. Переоцінка: LLM корегування ризику</h2>
+    <h2>{slideIndex}. Переоцінка: LLM корегування ризику</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem'}}>
       
       {/* Code Snippet */}
@@ -855,11 +855,11 @@ const SlideResponse = () => (
   </div>
 );
 
-const SlideQualityCheck = () => {
+const SlideQualityCheck = ({ slideIndex }) => {
   const [selectedImg, setSelectedImg] = useState(null);
   return (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>13. Етап 1: Фільтрація невдалих запусків</h2>
+    <h2>{slideIndex}. Етап 1: Фільтрація невдалих запусків</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem', alignItems: 'stretch'}}>
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
         <h3 style={{display: 'flex', alignItems: 'center', marginBottom: '1rem', color: '#3b82f6'}}>
@@ -903,11 +903,11 @@ const SlideQualityCheck = () => {
   </div>
 )};
 
-const SlideMetrics = () => {
+const SlideMetrics = ({ slideIndex }) => {
   const [selectedImg, setSelectedImg] = useState(null);
   return (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>14. Етап 2: Розрахунок метрик</h2>
+    <h2>{slideIndex}. Етап 2: Розрахунок метрик</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem', alignItems: 'stretch'}}>
 
       {/* Left: Metrics descriptions */}
@@ -961,9 +961,9 @@ const SlideMetrics = () => {
   </div>
 )};
 
-const SlideDashboardCharts = ({ chartData }) => (
+const SlideDashboardCharts = ({ chartData, slideIndex }) => (
   <div className="slide-content">
-    <h2>15. Етап 3: Порівняльний аналіз</h2>
+    <h2>{slideIndex}. Етап 3: Порівняльний аналіз</h2>
     <div className="chart-container" style={{height: '400px', background: 'white', padding: '1rem', borderRadius: '0'}}>
       {chartData.length > 0 ? (
         <ResponsiveContainer width="100%" height="100%">
@@ -998,9 +998,9 @@ const catColors = {
 };
 const getCatColor = (cat) => catColors[cat] || catColors.DEFAULT;
 
-const SlideDashboardTable = ({ tableRows }) => (
+const SlideDashboardTable = ({ tableRows, slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>16. Етап 4: Висновки щодо LLM-моделей</h2>
+    <h2>{slideIndex}. Етап 4: Висновки щодо LLM-моделей</h2>
     <div className="table-container" style={{flexGrow: 1, overflowY: 'auto', background: 'white', borderRadius: '0', border: '1px solid #e2e8f0', minHeight: 0}}>
       <table style={{width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem'}}>
         <thead style={{position: 'sticky', top: 0, background: '#f8fafc', zIndex: 1}}>
@@ -1047,9 +1047,9 @@ const SlideDashboardTable = ({ tableRows }) => (
   </div>
 );
 
-const SlideInsights = () => (
+const SlideInsights = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>17. Ключові висновки</h2>
+    <h2>{slideIndex}. Ключові висновки</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem', alignItems: 'stretch'}}>
 
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
@@ -1092,9 +1092,9 @@ const SlideInsights = () => (
   </div>
 );
 
-const SlideValue = () => (
+const SlideValue = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>18. Підсумок: Цінність дослідження</h2>
+    <h2>{slideIndex}. Підсумок: Цінність дослідження</h2>
     <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', flexGrow: 1, paddingBottom: '1rem', alignItems: 'stretch'}}>
 
       <div className="card" style={{display: 'flex', flexDirection: 'column'}}>
@@ -1129,9 +1129,9 @@ const SlideValue = () => (
   </div>
 );
 
-const SlideAppendix = () => (
+const SlideAppendix = ({ slideIndex }) => (
   <div className="slide-content" style={{height: '100%', display: 'flex', flexDirection: 'column'}}>
-    <h2>19. Додаток: Jupyter Notebook</h2>
+    <h2>{slideIndex}. Додаток: Jupyter Notebook</h2>
     <div style={{flexGrow: 1, border: '1px solid #e2e8f0', overflow: 'hidden', background: '#fff', marginTop: '1rem'}}>
       <iframe src="./results_analysis.html" width="100%" height="100%" style={{border: 'none'}} title="Results Analysis Notebook"></iframe>
     </div>
@@ -1408,7 +1408,7 @@ function App() {
       });
   }, []);
 
-  const slides = [
+  const allSlides = [
     <SlideTitle key={0} />,
     <SlideProblem key={1} />,
     <SlideQuestion key={2} />,
@@ -1431,6 +1431,14 @@ function App() {
     <SlideAppendix key={19} />,
     <SlideThankYou key={20} />
   ];
+
+  const searchParams = new URLSearchParams(window.location.search);
+  const isShortMode = searchParams.get('mode') === 'short';
+  const shortModeIndices = [0, 1, 2, 3, 5, 6, 9, 10, 11, 13, 14, 17, 18, 20];
+
+  const slides = isShortMode 
+    ? allSlides.filter((_, index) => shortModeIndices.includes(index))
+    : allSlides;
 
   const totalSlides = slides.length;
 
@@ -1485,7 +1493,7 @@ function App() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             style={{position: 'absolute', inset: 0, overflowY: 'auto', paddingRight: '1rem'}}
           >
-            {slides[currentSlide]}
+            {React.cloneElement(slides[currentSlide], { slideIndex: currentSlide })}
           </motion.div>
         </AnimatePresence>
       </div>

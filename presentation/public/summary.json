@@ -125,15 +125,15 @@
       },
       {
         "model": "gpt-4o-mini",
-        "adjustment_rate": 35.66,
+        "adjustment_rate": 36.72,
         "decision_consistency": 88.31,
-        "latency": 31.98,
-        "total_tokens": 10339,
+        "latency": 32.01,
+        "total_tokens": 10346,
         "adjustment_categories": {
-          "PUBLICLY_EXPOSED_ASSET": 50,
-          "INCREASED_CONTEXTUAL_RISK": 44,
-          "SENSITIVE_DATA_EXPOSURE": 40,
-          "ACCEPTED_RISK": 12
+          "PUBLICLY_EXPOSED_ASSET": 60,
+          "INCREASED_CONTEXTUAL_RISK": 52,
+          "SENSITIVE_DATA_EXPOSURE": 48,
+          "ACCEPTED_RISK": 16
         }
       },
       {
@@ -331,12 +331,12 @@
       },
       {
         "model": "gpt-4o-mini",
-        "adjustment_rate": 25.43,
-        "decision_consistency": 93.3,
-        "latency": 17.55,
-        "total_tokens": 25107,
+        "adjustment_rate": 24.74,
+        "decision_consistency": 92.74,
+        "latency": 22.05,
+        "total_tokens": 25044,
         "adjustment_categories": {
-          "COMPENSATING_CONTROL": 121
+          "COMPENSATING_CONTROL": 139
         }
       },
       {
